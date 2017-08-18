@@ -23,12 +23,12 @@ set -e
  --disable-post-processing  \
  --disable-rabbitmq  \
  --disable-turn-rest-api  \
- --disable-unix-sockets  \
+ --disable-websockets \
+ --enable-unix-sockets  \
  --enable-plugin-streaming  \
  --enable-plugin-videoroom  \
  --enable-rest  \
  --enable-static  \
- --enable-websockets
 
 # PAS: Not sure what this one is
 # --disable-sample-event-handler  \
