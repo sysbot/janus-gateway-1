@@ -36,6 +36,8 @@ set -e
 # Make a distributable file
 make check install DESTDIR=$DIST_DIR
 cd $DIST_DIR
+cp /usr/lib/libsrtp2.so opt/janus/lib
+cp /usr/lib/libsrtp2.so.1 opt/janus/lib
 tar cvzf ../janus.tgz .
 
 # Push to S3
