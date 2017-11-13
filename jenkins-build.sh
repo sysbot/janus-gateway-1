@@ -76,6 +76,13 @@ zip=${name}.tgz
 echo "Uploading $zip to S3"
 aws s3 cp --region us-west-2 ../janus.tgz s3://caffeine-bin/jenkins/janus/$zip
 
+# append to the message the sha256sum and source
+appendToMessage = "Update salt to:"
+appendToMessage = "${appendToMessage}\n- source: s3://caffeine-bin/jenkins/janus/$zip"
+appendToMessage = "${appendToMessage}\n- source_hash: sha256=$(sha256sum $zip|cut -f1 -d' ')"
+echo appendToMessage
+$message = "${message}\n${appendToMessage}"
+
 
 PAYLOAD_FILE=`mktemp -t janus-payload.XXXXXXXX`
 cat > $PAYLOAD_FILE <<EOF
