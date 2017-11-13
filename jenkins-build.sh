@@ -79,7 +79,7 @@ aws s3 cp --region us-west-2 ../janus.tgz s3://caffeine-bin/jenkins/janus/$zip
 # append to the message the sha256sum and source
 append_to_message="Update salt to:"
 append_to_message="$append_to_message\n- source: s3://caffeine-bin/jenkins/janus/$zip"
-append_to_message="$append_to_message\n- source_hash: sha256=$(sha256sum $zip|cut -f1 -d' ')"
+append_to_message="$append_to_message\n- source_hash: sha256=$(sha256sum ../janus.tgz|cut -f1 -d' ')"
 echo append_to_message
 message="$message\n$append_to_message"
 
