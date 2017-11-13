@@ -54,8 +54,8 @@ issue_name=`git show --format="%b" | head -1`
 
 if [[ "$BRANCH_NAME" == "master" || "$BRANCH_NAME" == "v0.2.4-caffeine" ]]; then
   name="janus-${BRANCH_NAME}-${tag}-b${BUILD_ID}"
-  color="#239e5b"
-  message="A <$RUN_DISPLAY_URL|Jenkins build> for <https://github.com/caffeinetv/janus|${BRANCH_NAME}> uploaded artifacts to S3"
+  color="#23ae4b"
+  message="A <$RUN_DISPLAY_URL|Jenkins build> for Janus <https://github.com/caffeinetv/janus|${BRANCH_NAME}> uploaded artifacts to S3"
   fields=$(cat <<EOF
   ,
   {
@@ -66,8 +66,8 @@ EOF
 )
 else
   name="janus-pr${CHANGE_ID}-${tag}-b${BUILD_ID}"
-  color="#009fe0"
-  message="A <$RUN_DISPLAY_URL|Jenkins build> for <$CHANGE_URL|$BRANCH_NAME> uploaded artifacts to S3"
+  color="#00afd0"
+  message="A <$RUN_DISPLAY_URL|Jenkins build> for Janus <$CHANGE_URL|$BRANCH_NAME> uploaded artifacts to S3"
 fi
 
 zip=${name}.tgz
