@@ -10,7 +10,7 @@ set -e
 wget https://github.com/cisco/libsrtp/archive/v2.0.0.tar.gz
 tar xfv v2.0.0.tar.gz
 cd libsrtp-2.0.0
-./configure --prefix=/usr --enable-openssl
+./configure --prefix=$DIST_DIR/usr/local --enable-openssl
 make shared_library && make install
 
 # Build
